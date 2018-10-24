@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 16px/1.2 '微软雅黑';
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: #333;
+		}
+		.clr{
+			clear: both;
+		}
+		.header{
+			width: 100%;
+			height: 135px;
+			color: #969696;
+			background-color: #fff;
+		}
+		.header .header-top{
+			width: 100%;
+			height: 37px;
+			background-color: #2e3139;
+		}
+		.header .header-top-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			
+		}
+		.header .welcome,
+		.header .setting a{
+			font-size: 14px;
+			color: #969696;
+			line-height: 37px;
+		}
+		.header .setting{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.header .header-nav{
+			width: 100%;
+			height: 98px;
+		}
+		.header .header-nav-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			background-color: #fff;
+			overflow: hidden;
+		}
+		.header .header-nav-c .logo{
+			display: block;
+			width: 180px;
+			height: 57px;
+			margin-top: 22px;
+			background: url(img/logo.png) no-repeat center;
+			/*可以调整背景图片大小  css3属性*/
+			background-size: 180px 57px;
+		}
+		.header .header-nav .nav{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+		}
+		.header .header-nav .nav-item{
+			position: relative;
+			float: left;
+			height: 100%;
+			width: 68px;
+			margin-left: 48px
+		}
+		.header .header-nav .nav-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-size: 16px;
+			color:#5a5a5a;
+			line-height: 98px;
+		}
+
+		.header .nav .under-line{
+			display: none;
+			position: absolute;
+			left: 0;
+			bottom: 29px;
+			width: 100%;
+			height: 2px;
+			background-color: #1669ad;
+		}
+		/*标识位*/
+		.header .nav .nav-item.active a{
+			color: #1669ad;
+		}
+		.header .nav .nav-item.active .under-line{
+			display: block;
+		}
+		/*banner部分*/
+		.banner{
+			width: 100%;
+			height: 400px;
+			background-color: #165284;
+		}
+		.banner .banner-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.banner .banner-imgs{
+			width: 2000px;
+			height: 100%;
+		}
+		.banner .banner-imgs .banner-img-item{
+			float: left;
+			width: 1000px;
+			height: 100%;
+		}
+		.banner .arrs{
+			position: absolute;
+			left: 0;
+			bottom: 12px;
+			height: 4px;
+		}
+		.banner .arrs .arr-item{
+			float: left;
+			width: 24px;
+			height: 100%;
+			margin-right: 7px;
+			background-color: #d1d1d1;
+		}
+		.banner .arrs .arr-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.banner .arrs .arr-item.active{
+			background-color: #4280ba;
+		}
+		/*内容部分开始*/
+		.container{
+			width: 100%;
+		}
+		.container .container-c{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.container .products{
+			width: 100%;
+			margin-top: 28px;
+		}
+		/*公共部分*/
+		.container .title-block{
+			position: relative;
+			width: 100%;
+			height: 40px;
+			border-bottom: 1px solid #cfcfcf;
+			background-color: #fff;
+		}
+		/*重要! 块状元素垂直居中的另一种方式*/
+		.container .title-block .dotts{
+			position: absolute;
+			left: 2px;
+			/*距离顶部的距离为外层盒子高度的50%*/
+			top: 50%;
+			width: 6px;
+			height: 16px;
+			margin-top: -8px;
+		}
+		.container .title-block .dotts span{
+			display: block;
+			width: 100%;
+			height: 6px;
+			background-color: #11589d;
+		}
+		.container .title-block .dotts .span2{
+			margin-top: 4px;
+		}
+		.container .title-block .title-cn,
+		.container .title-block .title-en{
+			color: #5a5a5a;
+			line-height: 40px;
+		}
+		.container .title-block .title-cn{
+			font-size: 18px;
+			font-weight: bolder;
+			margin-left: 23px;
+		}
+		.container .title-block .title-en{
+			font-size: 15px;
+			margin-left: 20px;
+		}
+		.container .title-block .more{
+			position: absolute;
+			right: 0;
+			bottom: 5px;
+			width: 53px;
+			height: 20px;
+			background-color: #ededed;
+			border: 1px solid #cfcfcf;
+			font-size: 14px;
+			color: #5a5a5a;
+			text-align: center;
+			line-height: 20px;
+			/*圆角 css3属性*/
+			border-radius: 4px;
+		}
+         .products .box-qq{
+        	position: absolute;
+        	 display: block;
+        	 bottom:40px;
+        	 right:100px;
+             width: 142px;
+             height: 182px;
+            
+        }
+		.container .products .products-imgs{
+			width: 100%;
+			margin-top: 15px;
+		}
+		.container .products .product-item{
+			float: left;
+			width: 244px;
+			margin-left: 8px;
+		}
+		.container .products .product-item.margin-left-none{
+			margin-left: 0;
+		}
+		.container .products .product-item img{
+			width: 234px;
+			height: 140px;
+			border: 5px solid #fff;
+		}
+		.container .product-item .pname{
+			font-size: 15px;
+			text-align: center;
+			color: #3a3a3a;
+			line-height: 38px;	
+		}
+		.title-text{
+        	width: 100%;
+        	height: 275px;
+        	background-color: pink;
+        }
+        /*尾部*/
+        .title-text{
+        	
+        	float: left;
+        	width: 100%;
+        	height: 100%px;
+        	background-color: pink;
+        	text-decoration: center;
+        }
+        .footer{
+        	margin-bottom: 200px;
+        	width: 100%;
+        	
+        	background-color: #2e3139;
+        }
+        .footer .footer-cp .footer-item,
+        .footer .footer-xx .footer-dz,
+        .footer .footer-tell .footer-lx{
+        	line-height: 50px;       
+        	font-size: 15px;
+        	color: #989ca7;
+        }
+        .footer .footer-cp .footer-item{
+        	
+        	bottom: 120px;
+        }
+        .footer .footer-y .footer-yh{
+        	font-size: 15px;
+        	color: #989ca7;
+        	text-align: center;
+        }
+        .footer .footer-c{
+        	
+        	vertical-align: middle;
+        	text-align: center;
+        }
+        
+	</style>
+</head>
+<body>
+	<!-- 1.基本页面布局 -->
+	<div class="header">
+		<div class="header-top">
+			<div class="header-top-c">
+				<p class="welcome">欢迎莅临河南省巩义市昌隆精化有限公司！</p>
+				<div class="setting">
+					<a href="#">设为首页</a>
+					|
+					<a href="#">收藏本站</a>
+				</div>
+			</div>
+		</div>
+		<div class="header-nav">
+			<div class="header-nav-c">
+				<a href="#" class="logo"></a>
+				<ul class="nav">
+					<li class="nav-item"><a href="#">首页</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item"><a href="#">公司简介</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item"><a href="#">产品中心</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item active"><a href="#">新闻动态</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item"><a href="#">诚聘英才</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item"><a href="#">联系我们</a>
+						<span class="under-line"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- banner部分 -->
+	<div class="banner">
+		<div class="banner-c">
+			<ul class="banner-imgs">
+				<li class="banner-img-item"><img src="img/banner.jpg" alt=""></li>
+				<li class="banner-img-item"><img src="img/banner.jpg" alt=""></li>
+			</ul>
+			<ul class="arrs">
+				<li class="arr-item active"><a href="#"></a></li>
+				<li class="arr-item"><a href="#"></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 内容部分 -->
+	<div class="container">
+		<div class="container-c">
+			<!-- 产品中心 -->
+			<div class="products">
+				<div class="title-block">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="title-cn">产品中心</span>
+					<span class="title-en">PRODUCTS</span>
+					<a class="more" href="#">more></a>
+				</div>
+				<ul class="products-imgs">
+					<li class="product-item margin-left-none">
+						<img src="img/pro_1.jpg" alt="">
+						<p class="pname">速溶硅酸钠/粉状硅酸钠</p>
+					</li>
+					<li class="product-item">
+						<img src="img/1.jpg" alt="">
+						<p class="pname">水玻璃</p>
+					</li>
+					<li class="product-item">
+						<img src="img/2.jpg" alt="">
+						<p class="pname">固体硅酸钠</p>
+					</li>
+					<li class="product-item">
+						<img src="img/3.jpg" alt="">
+						<p class="pname">硅溶胶</p>
+					</li>
+					<li class="clr"></li>
+				</ul>
+				<div class="box-qq">
+	  	           <img src="img/qq.jpg" alt="">
+	            </div>
+			</div>
+			<!-- 公司简介 -->
+			<div class="compony">
+				<div class="title-block">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="title-cn">公司简介</span>
+					<span class="title-en">COMPONY</span>
+					<a class="more" href="#">more></a>
+				</div>
+				
+            </div>
+               
+				<div class="title-block">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="title-cn">新闻动态</span>
+					<span class="title-en">COMPANY&nbspNEWS</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	 <div class="footer-c">
+	  <div class="footer-cp">
+		<a href="" class="footer-item">公司介绍  |</a>
+		<a href="" class="footer-item">产品中心  |</a>
+		<a href="" class="footer-item">网站新闻  |</a>
+		<a href="" class="footer-item">留言系统  |</a>
+		<a href="" class="footer-item">联系我们  |</a>
+		<a href="" class="footer-item">网站地图  </a>
+	  </div>
+	  <div class="footer-xx">
+	    <a href="" class="footer-dz">
+	    	       河南省巩义市昌隆精化有限公司
+	    &nbsp&nbsp&nbsp</a>
+	    <a href="" class="footer-dz"> 
+	               公司地址：巩义市北山口汽车站南200米&nbsp&nbsp&nbsp
+	    </a>
+	    <a href="" class="footer-dz">
+	    	       手机：13598855556&nbsp&nbsp&nbsp
+	    </a>
+	  </div>
+	  <div class="footer-tell">
+	  	   <a href="" class="footer-lx">电话：0371-64124378
+	  	   &nbsp&nbsp&nbsp </a>
+	  	   <a href="" class="footer-lx">邮编：450000&nbsp&nbsp</a>
+	  	   <a href="" class="footer-lx">邮箱：gychanglong@163.com&nbsp&nbsp</a>
+	  	   <a href="" class="footer-lx">网址：http://www.clphj.com&nbsp&nbsp</a>
+	  </div>
+	  <div class="footer-y">
+	  	<a href="" class="footer-yh">豫ICP备12013179号-1</a>
+	  </div>
+	 </div>
+	  
+	</div>
+</body>
+</html>

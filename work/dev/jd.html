@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*reset css 初始化样式*/
+		/*jd红  E21C19*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 16px/1.2 Arial,Verdana,"宋体";
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: #333;
+		}
+		/*头部样式*/
+		.header{
+			width: 100%;	
+			height: 80px;
+			background-color: #fff;
+		}
+		/*注意:不能直接写.header-c;*/
+		.header .header-c{
+			position: relative;
+			width: 990px;
+			height: 100%;
+			/*background-color: pink;*/
+			/*块状居中*/
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.header .header-c .logo{
+			float: left;
+			display: block;
+			width: 170px;
+			height: 60px;
+			margin-top: 10px;
+			background: url('img/logo.png') no-repeat center;
+		}
+		.header .header-c .welcome{
+			font-family: '微软雅黑';
+			float: left;
+			height: 100%;
+			font-size: 24px;
+			line-height: 100px;
+			margin-left: 24px;
+		}
+		.header .header-c .ask{
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			font-size: 14px;
+			color: #999;
+			/*padding-left: 20px;*/
+			text-indent: 22px;
+			background: url(img/q-icon.png) no-repeat 0 2px;
+		}
+		.header .header-c .ask:hover{
+			color: #E21C19;
+			text-decoration: underline;
+		}
+		/*tip样式*/
+		/*3种实现方式: 1.vertical-align: middle;表格里面的内容垂直居中
+			2. 内容标签左右居中
+				a) 通过padding-left设置
+			3. 内容标签左右居中(转为行内块)
+				a) 通过padding-left
+				b) text-index: */
+		.tip,.tip2{
+			width: 100%;
+			height: 38px;
+			background-color: #FFF8F0;
+			color: #999;
+			font-size: 12px;
+			text-align: center;
+			line-height: 38px;
+			/*background: url(img/icon-tips.png) no-repeat 100px;*/
+		}
+		.tip .zc{
+			color: #000;
+		}
+		.tip .zc:hover{
+			text-decoration: underline;
+		}
+		.tip .icon-tips{
+			/*vertical-align 本身很复杂,一般只会作用于行内块元素,跟其他元素的对齐方式*/
+			vertical-align: middle;
+		}
+		.tip2{
+			background-color: pink;
+		}
+		.tip2 .tip2-text{
+			/*display: inline-block;*/
+			text-align: center;
+			background: url(img/icon-tips.png) no-repeat left;
+			padding: 10px 0;
+			padding-left: 20px;
+			/*在行内元素是失效的*/
+			/*text-indent: 20px;*/
+		}
+		/*内容部分样式*/
+		.container{
+			width: 100%;
+			height: 475px;
+			background: #D91930 url(img/bg.jpg) no-repeat center;
+		}
+		.container .container-c{
+			position: relative;
+			width: 990px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		
+		.container .login-block{
+			position: absolute;
+			right: 0;
+			top: 10px;
+			width: 346px;
+			/*临时*/
+			/*height: 400px;*/
+			background-color: #fff;
+		}
+		
+		.container .login-block .login-tab{
+			font-family: '微软雅黑';
+			width: 100%;
+			height: 55px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+		.container .login-tab .login-tab-link{
+			float: left;
+			display: block;
+			width: 173px;
+			height: 18px;
+			margin-top: 19px;
+			font-size: 18px;
+			line-height: 18px;
+			text-align: center;
+		}
+		/*目前只能这样写 css3里可以选择第几个孩子节点*/
+		.container  .login-tab-link.right-border{
+			width: 172px;
+			border-right: 1px solid #f0f0f0;
+		}
+		/*激活和hover样式是一样的*/
+		.container  .login-tab-link.active,
+		.container  .login-tab-link:hover{
+			font-weight: bolder;
+			color: #E21C19;
+		}
+		.container .form{
+			width: 100%;
+			margin-top: 30px;
+		}
+		.container .form .input-item{
+			width: 304px;
+			height: 38px;
+			border: 1px solid #e5e5e5;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+		.container .form .input-item .icon{
+			float: left;
+			display: block;
+			width: 38px;
+			height: 100%;
+			border-right: 1px solid #e5e5e5;
+			background-image: url(img/pwd-icons-new.png);
+			background-repeat: no-repeat;
+		}
+		.container .form .input-item .input1{
+			float: left;
+			width: 265px;
+			height: 100%;
+			text-indent: 20px;
+			/*去掉输入框默认边框*/
+			border: none;
+			/*用于去掉input输入框获取焦点的默认样式*/
+			outline: none;
+		}
+		/*精灵图片处理/雪碧图
+			好处: 减少http请求,提高加载速度;
+			坏处: 如果更新图标,需要改代码;
+		*/
+		.container .form  .username-item .icon{
+			background-position: 0 0;
+		}
+		.container .form  .password-item .icon{
+			background-position: -48px 0;
+		}
+		.container .form .forget{
+			width: 100%;
+			height: 14px;
+			margin: 22px auto;
+			text-align: right;
+		}
+		.container .form .forget a{
+			color: #333;
+			font-size: 12px;
+			margin-right: 20px;
+		}
+		.container .form .forget a:hover{
+			color: #E21C19;
+		}
+		.container .form .btn-login{
+			display: block;
+			width: 304px;
+			height: 33px;
+			background-color: #E21C19;
+			margin: 0 auto;
+			font-size: 20px;
+			text-align: center;
+			line-height: 33px;
+			color: #fff;
+		}
+		.container .login-block .login-footer{
+			position: relative;
+			width: 100%;
+			height: 50px;
+			background-color: #FCFCFC;
+			margin-top: 30px;
+		}
+		.login-block .login-footer .qq-link,
+		.login-block .login-footer .wx-link{
+			position: relative;
+			float: left;
+			display: block;
+			height: 19px;
+			font-size: 14px;
+			margin-left: 20px;
+			padding-left: 20px;
+			margin-top: 15px;
+			
+		} 
+		.login-block .login-footer .wx-link{
+			margin-left: 0;
+		}
+		.login-block .login-footer .icon{
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 19px;
+			height: 19px;
+			background-color: pink;
+			background: url(img/qq-wx.png) no-repeat;
+		}
+		.login-block .login-footer .qq-link .icon{
+			background-position: 0 0;
+		}
+		.login-block .login-footer .wx-link .icon{
+			margin-left: 0;
+			background-position: -19px 0;
+		}
+		.login-block .login-footer .split-line{
+			float: left;
+			display: block;
+			width: 1px;
+			height: 16px;
+			background-color: #999;
+			margin: 0 20px;
+			margin-top: 15px;
+		}
+		.login-block .login-footer .register{
+			position: absolute;
+			right: 20px;
+			top: 15px;
+			color : #E21C19;
+			font-size: 16px;
+			padding-left: 20px;
+		}
+		.login-block .login-footer .register .reg-icon{
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 16px;
+			height: 16px;
+			/*background-color: red;*/
+			background:url(img/pwd-icons-new.png) no-repeat -104px -75px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 头部部分 -->
+	<div class="header">	
+		<!-- 版心 -->
+		<div class="header-c">	
+			<!-- 一般logo图片都是能点击的 而且直接跳转到首页 seo优化 -->
+			<a href="http://www.jd.com" class="logo"></a>	
+			<p class="welcome">欢迎登陆</p>
+			<a href="#" class="ask">登陆页面,问卷调查</a>
+		</div>
+	</div>
+	<!-- 小提示 -->
+	<div class="tip">
+		<!-- 行内元素/行内块元素 才能通过父类的"text-align:center"使其左右居中	 -->
+		<img class="icon-tips" src="img/icon-tips.png" alt="">
+依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版 <a class="zc" href="#">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。
+	</div>
+	<div class="tip2">
+		<span class="tip2-text">依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版《京东隐私政策》已上线，将更有利于保护您的个人隐私。</span>
+	</div>
+	<!-- 内容部分 -->
+	<div class="container">	
+		<div class="container-c">
+			<!-- 登陆区域 -->
+			<div class="login-block">
+				<div class="tip">
+					<img class="icon-tips" src="img/icon-tips.png" alt="">
+					京东不会以任何理由要求您转账汇款，谨防诈骗。
+				</div>
+				<!-- 选项卡部分 -->
+				<div class="login-tab">
+					<a class="login-tab-link right-border" href="#">扫码登录</a>
+					<a class="login-tab-link active" href="#">账户登陆</a>
+				</div>
+				<!-- 表单开始 -->
+				<form class="form">
+					<div class="input-item username-item">
+						<span class="icon"></span>
+						<!-- placeholder输入框占位符 -->
+						<input class="input1" type="text" placeholder="邮箱/电话/账号">
+					</div>
+					<div class="input-item password-item">
+						<span class="icon"></span>
+						<input class="input1" type="password" placeholder="密码">
+					</div>
+					<p class="forget">
+						<a href="#">忘记密码</a>
+					</p>
+					<a class="btn-login" href="#">登陆</a>
+				</form>
+				<!-- 底部 -->
+				<div class="login-footer">
+					<a href="#" class="qq-link">
+						<span class="icon"></span>QQ
+					</a>
+					<span class="split-line"></span>
+					<a href="#" class="wx-link">
+						<span class="icon"></span>微信
+					</a>
+					<a class="register" href="#">
+						<span class="reg-icon"></span>立即注册
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="footer">	
+
+	</div>
+</body>
+</html>

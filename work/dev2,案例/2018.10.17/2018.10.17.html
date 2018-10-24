@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	       margin: 0;
+           padding: 0;
+	    }
+	    body{
+	    	font: 14PX/1.2 "微软雅黑"
+	    }
+	    a{
+	    	text-decoration: none;
+	    	color:#333;
+	    }
+        ul{
+        	list-style: none;
+        }      
+		.header{
+			width: 100%;
+			height: 135px;
+			background-color: white;
+		}
+		.header-top{
+            width: 100%;
+            height: 37px;
+            background-color: black;
+		}
+	    
+         .header .setting{
+			position: absolute;
+			right: 290px;
+			top: 14px;			
+		}
+		.setting-item{
+			color: #969696;
+		}
+		.header .header-top .welcome{
+			position: absolute;
+			left: 290px;
+			top: 10px;
+			vertical-align: middle;
+            color: #969696;
+		}
+		.header .header-b{	
+		    position: relative;		
+			width: 1000px;
+			height: 100px;
+			background-color: white;
+			margin:0 auto;
+			text-align: center;
+
+		}
+		.header .header-c {
+			position: absolute;
+            right:0px;
+            bottom:40px;
+			color: #999;
+			font-size: 16px;
+			
+		}
+       .header .header-c .nav-item{
+        	
+			float: left;
+			 height: 100%;
+			width: 68px;
+			margin-left: 48px
+        }
+        /*.header .header-c .nav-item a{
+        	display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-size: 16px;
+			color:#5a5a5a;
+			line-height: 98px;
+			
+        }*/
+       
+		.header .header-b .logo{
+			float: left;
+			display: block;
+			width: 180px;
+			height: 57px;
+			margin-top: 22px;
+			background: url(img/logo.png)  center;
+		    background-size:180px 57px ;
+
+		}
+		.banner{
+			width: 100%;
+			height: 400px;
+			background-color: #0b3764;
+		}
+		.banner .banner-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.banner .banner-imgs{
+			width: 2000px;
+			height: 100%;
+		}
+		.banner .banner-imgs .banner-img-item{
+			float: left;
+			width: 1000px;
+			height: 100%;
+		}
+		.banner .dot{
+			position: absolute;
+			left: 0;
+			bottom: 12px;
+			height: 4px;
+		}
+		.banner .dot .dot-item{
+			float: left;
+			width: 24px;
+			height: 100%;
+			margin-right: 7px;
+			background-color: #d1d1d1;
+		}
+		.banner .dot .dot-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.banner .dot .dot-item.acitve{
+			background-color: #4280ba;
+		}
+		.container{
+			width: 100%;
+		}
+		.container .container-c{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.container .products{
+			width: 100%;
+			margin-top: 28px;
+		}
+		.container .title{
+			float: left;
+			width: 100%;
+			height: 40px;
+			border-bottom: 1px solid #cfcfcf;
+			background-color: #fff;
+		}
+		.container .title .dotts{
+			position: absolute;
+			left: 2px;
+			top: 22px;
+			width: 6px;
+			height: 16px;
+			margin-top: -8px;
+		}
+		.container .title .dotts span{
+			display: block;
+			width: 100%;
+			height: 6px;
+			background-color: #11589d;
+		}
+		.container .title .dotts .span2{
+			margin-top: 4px;
+		}
+		.container .title .lang-cn,
+		.container .title .lang-en{
+			color: #5a5a5a;
+			line-height: 40px;
+		}
+		.container .title .lang-cn{
+			font-size: 18px;
+			font-weight: bolder;
+			margin-left: 23px;
+		}		
+		.container .title .lang-en{
+			font-size: 15px;
+			margin-left: 20px;
+		}
+		.container .title .more{
+			position: absolute;
+			right: 0;
+			bottom: 5px;
+			width: 53px;
+			height: 20px;
+			background-color: #ededed;
+			border: 1px solid #cfcfcf;
+			font-size: 14px;
+			color: #5a5a5a;
+			text-align: center;
+			line-height: 20px;
+			/*边缘-半径(圆角)*/
+			border-radius: 4px;
+		}
+		.container .products .products-imgs{
+			width: 100%;
+			margin-top: 15px;
+		}
+		.container .products .product-item{
+			float: left;
+			width: 244px;
+			margin-left: 8px;
+		}
+		.container .products .product-item.margin-left-none{
+			margin-left: 0px;
+		}
+		.container .products .product-item img{
+			width: 234px;
+			height: 140px;
+			border: 5px solid #fff;
+		}
+		.container .product-item .pname{
+			font-size: 15px;
+			text-align: center;
+			color: #3a3a3a;
+			line-height: 38px;
+		}
+		.container .company{
+			width: 100%;	
+			margin-top: 20px;
+		}
+		.container .company-profile img{
+			width: 300px;
+			height: 170px;
+			margin-top: 15px;
+		}
+		.container .company-profile .z1,.z2,.z3{
+			text-indent: 2em;
+		}
+		.container .company-profile .z1{
+			font-weight: bolder;
+			line-height: 54px;
+			padding-top: 14px;
+		}
+		.container .company-profile .z2,.z3{
+			position: relative;
+			width: 980px;
+			right: 0px;
+			font-size: 14px;
+			line-height: 23px;
+			left: 26px;
+		}
+		.container .container-bottom{
+			position: relative;
+			top: 30px;
+			width: 100%;
+			height: 150px;
+			/*background-color: pink;*/
+		}
+		.container .container-bottom .contact{
+			width: 300px;
+		}
+		.container .container-bottom .news{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 675px;
+		}
+		.container .container-bottom .detailed{
+			font-size: 15px;
+			line-height: 30px;
+		}
+		.container .container-bottom .news .rq{
+			font-size: 15px;
+			line-height: 30px;
+		}
+		.container .container-bottom .news .xq{
+			position: absolute;
+			right: 0;
+		}
+		.container .container-bottom .news a:hover{
+			color: red;
+			text-decoration:underline;
+		}
+		.footer{
+			position: relative;
+			margin-top: 100px;
+			width: 100%;
+			height: 200px;
+			color: #969696;
+			background-color: #2e3139;
+		}
+		.footer .footer-c{
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+        }
+        .footer .footer-c .wz,.wz2{
+        	margin-top: 20px;
+        	font-size: 14px;
+        	line-height: 30px;
+        	color: #fff;
+        	text-align: center;
+        }
+        .footer a:hover{
+			color: #E21C19;
+			text-decoration: underline;
+		}
+		.footer a{
+			color: #fff;
+		}
+		.zx{
+			position: fixed;
+			right: 120px;
+			bottom: 300px;
+			width: 143px;
+			height: 183px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="header-top">
+			<p class="welcome">
+				    欢迎莅临河南省巩义市昌隆精化有限公司！
+		    </p>
+		    <div class="setting">
+		    	<a href="" class="setting-item">设为首页 |</a>
+		    	<a href="" class="setting-item">收藏本站</a>
+		    </div>
+		</div>
+        <div class="header-b">
+        	<a href="" class="logo">
+        		
+        	</a>
+		   <div class="header-c"> 
+						<a href="" class="nav-item">
+							<span class="under-line"></span>
+							首页
+						</a>
+					
+						<a href="" class="nav-item active">
+							<span class="under-line"></span>
+							公司简介
+						</a>
+					
+						<a href="" class="nav-item">
+							<span class="under-line"></span>
+							产品中心
+						</a>
+							
+						<a href="" class="nav-item">
+							<span class="under-line"></span>
+							新闻动态
+						</a>
+					
+						<a href="" class="nav-item">
+							<span class="under-line"></span>
+							诚聘英才
+						</a>
+					
+						<a href="" class="nav-item">
+							<span class="under-line"></span>
+							联系我们
+						</a>
+		   </div>
+		</div>   		
+	</div>
+	<div class="banner">
+		<div class="banner-c">
+			<ul class="banner-imgs">
+				<li class="banner-img-item"><img src="img3/banner1.jpg" alt=""></li>
+				<li class="banner-img-item"><img src="img3/banner2.jpg" alt=""></li>
+			</ul>
+			<ul class="dot">
+				<li class="dot-item acitve"><a href="#"></a></li>
+				<li class="dot-item"><a href="#"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-c">
+			<div class="products">
+				<div class="title">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="lang-cn">产品中心</span>
+					<span class="lang-en">PRODUCTS</span>
+					<a class="more" href="#">more</a>
+				</div>
+				<ul class="products-imgs">
+					<li class="product-item margin-left-none">
+						<img src="img3/p-1.jpg" alt="">
+						<p class="pname">速溶硅酸钠/粉状硅酸钠</p>
+					</li>
+					<li class="product-item">
+						<img src="img3/p-2.jpg" alt="">
+						<p class="pname">水玻璃</p>
+					</li><li class="product-item">
+						<img src="img3/p-3.jpg" alt="">
+						<p class="pname">固体硅酸钠</p>
+					</li><li class="product-item">
+						<img src="img3/p-4.jpg" alt="">
+						<p class="pname">硅溶胶</p>
+					</li>
+					<li class="clr"></li>
+				</ul>
+			</div>
+			<div class="company">
+				<div class="title">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="lang-cn">公司简介</span>
+					<span class="lang-en">COMPANY PROFILE</span>
+					<a class="more" href="#">more</a>
+				</div>
+				<div class="company-profile">
+					<img src="img3/company.jpg" style="float: left;" alt="">
+					<div class="compony-text">
+						<p class="z1">河南省巩义市昌隆精化有限公司</p>
+					    <p class="z2"> 巩义市昌隆精化有限公司位于人杰地灵的杜甫故里巩义市，成立于1999年，经过近17年的不懈努力,我们已成为国内最专业的硅酸钠类产品生产厂家，郑州地区居同行业之首。</p>
+	                    <p class="z2">公司主要生产固体、液体、粉状、钾钠等多种规格的泡花碱，其中年生产固体2万吨以上，液体5万吨速溶硅酸钠千余吨，并可根据用户需要生产特殊规格的泡花碱。我们以稳定的产品质量、优质的服务赢得了广大客户的信赖和支持，产品畅销全国以及世界各个国家和地区。
+	                    公司在立足国内市场的同时，积极开拓国际市场。
+	                    目前产品已销往东南亚、欧洲等国家和地区。公司愿与有志之士协同合作，互利共赢！</p>
+					</div>
+					<div class="clr"></div>
+					
+				</div>
+			</div>
+			<div class="container-bottom">
+				<div class="contact">
+					<div class="title">
+					    <div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					    </div>
+					    <span class="lang-cn">联系我们</span>
+					    <span class="lang-en">CONTACT US</span>
+					    <p class="detailed">电&nbsp;&nbsp;话:&nbsp;&nbsp;&nbsp;0371-4124378</p>
+					    <p class="detailed">手&nbsp;&nbsp;机:&nbsp;&nbsp;&nbsp;13598855556(李经理)</p>
+					    <p class="detailed">传&nbsp;&nbsp;真:&nbsp;&nbsp;&nbsp;010-80210483</p>
+					    <p class="detailed">邮&nbsp;&nbsp;箱:&nbsp;&nbsp;&nbsp;clhg@163.com</p>
+					    <p class="detailed">地&nbsp;&nbsp;址:&nbsp;&nbsp;    &nbsp;河南省巩义市北山口汽车站南200米</p>
+					</div>
+				</div>
+				<div class="news">
+					<div class="title">
+					    <div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					    </div>
+					    <span class="lang-cn">新闻动态</span>
+					    <span class="lang-en">COMPANY NEWS</span>
+					    <a class="more" href="#">more</a>
+						<ul class="news-item">
+							<li class="rq"><a href="#">生产固体泡花碱销售前景如何</a><span class="xq">2017-10-18</span></li>
+							<li class="rq"><a href="#">密度模数对水玻璃的性能有什么影响</a><span class="xq">2018-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2019-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2020-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2021-10-18</span></li>
+						</ul>
+				    </div>
+		       </div>
+	        </div>  
+	    </div>
+	<div class="footer">
+		<div class="footer-c">
+			<div class="wz">
+			<a href="#">公司介绍</a>
+			|
+			<a href="#">产品中心</a>
+			|
+			<a href="#">网站新闻</a>
+			|
+			<a href="#">留言系统</a>
+			|
+			<a href="#">联系我们</a>
+			|
+			<a href="#">网站地图</a>
+			</div>
+			<p class="wz2">河南省巩义市昌隆精化有限公司 &nbsp;&nbsp;&nbsp;&nbsp;公司地址:巩义市北山口汽车站南200米 &nbsp;&nbsp;&nbsp;&nbsp;手机:13598855556 </p>
+			<p class="wz2">电话:0371-4124378 &nbsp;&nbsp;&nbsp;&nbsp;邮箱:clhg@163.com &nbsp;&nbsp;&nbsp;&nbsp;网址:http://www.clphj.com</p>
+			<p class="wz2">豫ICP备12013179号-1</p>
+		</div>
+	</div>
+	<div class="zx">
+		<a href=""><img src="img3/zx.jpg" alt=""></a>
+	</div>
+</body>
+</html>
