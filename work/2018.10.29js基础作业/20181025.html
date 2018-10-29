@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var number = prompt("请输入92或95汽油编号");
+		var litre = null;
+		var money = null;
+		if(number == 92){
+			litre = prompt("请输入要加的油,单位为升");
+			if(litre < 20)
+			{
+				money = litre * 6;
+			}else {
+				money = litre * 5.9;
+			}
+			alert('价格为:'+ money + '人民币');
+		}else if(number == 95) {
+			litre = prompt("请输入要加的油,单位为升");
+			if(litre < 30)
+			{
+				money = litre * 7;
+			}else {
+				money = litre * 6.95;
+				}
+			alert('价格为:'+ money + '人民币');
+		}else{
+			alert('请输入正确的汽油编号!!!1');
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

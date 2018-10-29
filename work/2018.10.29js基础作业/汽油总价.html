@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>comment</title>
+	<script>
+        var  number = prompt("92或95");
+        var  liter = null;
+        var  money = null;
+        if(number==92){
+        	liter = prompt("容积");
+        	if (liter<20) {money=liter*6;}
+        	else{
+        		money = liter * 5.9;
+        	}
+        	alert('价格为:' +(money) )
+        }
+        else if (number==95) {
+        	liter = prompt("容积");
+        	if (liter<30) {
+        		money = liter * 7;
+        	}
+            else{money = liter * 6.95;}
+            alert('价格为:'  +(money))
+        }
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

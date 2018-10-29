@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var year = parseInt(prompt('请输入工作时间:','0'));
+		var salary = parseInt(prompt('请输入月薪:',));
+		// var money = parseInt(prompt('年终奖'));
+		var money = 0;
+				if (year < 1) {
+			if (salary>8000) {
+                money = salary*1.2;
+			}
+			else{
+				money = salary*1;
+			}
+			alert('年终奖:' +(money));
+		}  else if(year == 1) {
+			if (salary>10000) {
+				money = salary*1.7;
+			}
+			else{
+				money = salary*1.5;
+			}
+			alert('年终奖:'+(money));
+		}else if (year>=2) {
+			if (salary>12000) {
+				money = salary*3.2;
+			}
+			else{
+				money = salary*3;
+			}
+			alert('年终奖:'+(money));
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
