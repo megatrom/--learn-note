@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script >
+		// var one=prompt('这个数字能同时被5和6整除');
+		// var two=prompt('这个数字能被5整除,但是不能被6整除');
+		// var three=prompt('这个数字能被6整除,但是不能被5整除');
+		// var five=prompt('这个数字既不能被5整除,也不能被6整除');
+		var a=prompt('请输入数字');
+		// if (a%5==0) {
+		// 	if (a%6==0) {
+		// 		alert('这个数字能同时被5和6整除');
+		// 	}else{
+		// 		alert('这个数字能被5整除,但是不能被6整除');
+		// 	}
+		// }else{
+		// 	if (a%6!=0) {
+		// 		alert('这个数字既不能被5整除,也不能被6整除');
+		// 	}else{
+		// 		alert('这个数字能被6整除,但是不能被5整除');
+		// 	}
+		// }
+		if ((a%5==0)&&(a%6==0)){
+			alert('这个数字能同时被5和6整除');
+		}else if ((a%5==0)&&(a%6!=0)) {
+			alert('这个数字能被5整除,但是不能被6整除');
+		}else if ((a%5!=0)&&(a%6==0)) {
+			alert('这个数字能被6整除,但是不能被5整除');
+		}else{
+			alert('这个数字能被6整除,但是不能被5整除');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

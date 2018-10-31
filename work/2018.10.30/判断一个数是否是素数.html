@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script >
+		function zhishu(n){
+			var zhishu = true;//假设法
+			for(var i=2 ; i<n; i++){
+				if (n%i==0 ){
+					//除尽了说明不是素数
+					zhishu = false;
+				}
+			}
+			return zhishu;
+		} 
+		console.log(zhishu(9));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

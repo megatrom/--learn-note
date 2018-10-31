@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var arr2 = [3,5,11,8,7];
+		var rs = selectSort(arr2);
+		console.log(rs);
+
+		function selectSort(arr){
+			for (var j = 0; j < arr.length-1; j++) {
+				var minIndex = j;
+				for (var i = j+1; i <arr.length; i++) {
+				   if (arr[minIndex]>arr[i]) {
+				   	minIndex = i;
+				   }
+				}
+				if (minIndex != j) {
+					var temp = arr[j];
+					arr[j] = arr[minIndex];
+					arr[minIndex] = temp;
+				}
+			}
+			return arr;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
