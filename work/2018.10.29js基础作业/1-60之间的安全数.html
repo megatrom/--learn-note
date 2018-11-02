@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript">
-		for (var i = 1; i <=60; i++) {
-			if (i%7 == 0 || i%7 == 7) {
+		var num = prompt('请输入数字')
+		for (var i = 1; i <=num; i++) {
+			if (i%7!=0 && i%10!= 7) {
 				console.log(i);
 			}
 		}
